@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1704.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InwStockPhotos", "InwStockPhotos\InwStockPhotos.csproj", "{3DACD9C8-8B7A-4DA3-8985-555D9B585D60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InwStockPhotosTests", "InwStockPhotosTests\InwStockPhotosTests.csproj", "{759F7D7A-1A61-4DC7-BD9F-A6C6F31F25C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3DACD9C8-8B7A-4DA3-8985-555D9B585D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DACD9C8-8B7A-4DA3-8985-555D9B585D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DACD9C8-8B7A-4DA3-8985-555D9B585D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{759F7D7A-1A61-4DC7-BD9F-A6C6F31F25C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{759F7D7A-1A61-4DC7-BD9F-A6C6F31F25C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{759F7D7A-1A61-4DC7-BD9F-A6C6F31F25C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{759F7D7A-1A61-4DC7-BD9F-A6C6F31F25C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
