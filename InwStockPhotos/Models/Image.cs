@@ -7,6 +7,8 @@ namespace InwStockPhotos.Models
 {
 	public partial class Image
 	{
+		public static readonly string Endpoint = "api/images";
+
 		[JsonPropertyName("data")]
 		public List<ImageData>? Data { get; set; }
 
@@ -19,6 +21,8 @@ namespace InwStockPhotos.Models
 
 	public partial class Images
 	{
+		public static readonly string Endpoint = "api/images";
+
 		[JsonPropertyName("data")]
 		public List<Image>? Data { get; set; }
 
@@ -56,4 +60,3 @@ namespace InwStockPhotos.Models
 		public Tags? Tags { get; set; }
 	}
 }
-

@@ -5,6 +5,8 @@ namespace InwStockPhotos.Models
 {
 	public partial class ContentBlock
 	{
+		public static readonly string Endpoint = "api/content-blocks";
+
 		[JsonPropertyName("data")]
 		public ContentBlockData? Data { get; set; }
 
@@ -17,6 +19,8 @@ namespace InwStockPhotos.Models
 
 	public partial class ContentBlocks
 	{
+		public static readonly string Endpoint = "api/content-blocks";
+
 		[JsonPropertyName("data")]
 		public List<ContentBlock>? Data { get; set; }
 
@@ -54,4 +58,3 @@ namespace InwStockPhotos.Models
 		public DateTimeOffset PublishedAt { get; set; }
 	}
 }
-

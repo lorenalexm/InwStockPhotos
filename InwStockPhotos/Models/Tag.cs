@@ -7,6 +7,8 @@ namespace InwStockPhotos.Models
 {
 	public partial class Tag
 	{
+		public static string Endpoint = "api/tags";
+
 		[JsonPropertyName("data")]
 		public List<TagData>? Data { get; set; }
 
@@ -19,6 +21,8 @@ namespace InwStockPhotos.Models
 
 	public partial class Tags
 	{
+		public static readonly string Endpoint = "api/tags";
+
 		[JsonPropertyName("data")]
 		public List<Tag>? Data { get; set; }
 
@@ -50,4 +54,3 @@ namespace InwStockPhotos.Models
 		public DateTimeOffset UpdatedAt { get; set; }
 	}
 }
-
