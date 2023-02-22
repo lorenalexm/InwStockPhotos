@@ -42,8 +42,8 @@ namespace InwStockPhotosTests
 			var requester = new StrapiRequests(client, _url);
 			var content = await requester.GetAsync<ContentBlock>(1);
 
-			Assert.That(content.Error, Is.Not.Null);
-			Assert.That(content.Meta, Is.Not.Null);
+			Assert.That(content, Is.Not.Null);
+			Assert.That(content.Error, Is.Null);
 			Assert.That(content.Data.Attributes.Title, Is.EqualTo("About us"));
 		}
 	}
