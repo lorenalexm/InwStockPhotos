@@ -17,9 +17,11 @@
 
   <ItemGroup>
     <None Remove="MudBlazor" />
+    <None Remove="Services\" />
     <None Remove="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Services\" />
     <Folder Include="Models\" />
   </ItemGroup>
 </Project>
