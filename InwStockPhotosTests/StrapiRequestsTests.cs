@@ -33,7 +33,7 @@ namespace InwStockPhotosTests
 		/// Tests getting a single <see cref="ContentBlock"/> from a remote source.
 		/// </summary>
 		[Test]
-		public async Task GetASingleContentBlock()
+		public async Task Succeed_GettingASingleContentBlock()
 		{
 			var endpoint = "api/content-blocks";
 			mockHandler.When($"{_url}/{endpoint}/*")
@@ -42,9 +42,27 @@ namespace InwStockPhotosTests
 			var requester = new StrapiRequests(client, _url);
 			var content = await requester.GetAsync<ContentBlock>(1);
 
-			Assert.That(content, Is.Not.Null);
-			Assert.That(content.Error, Is.Null);
-			Assert.That(content.Data.Attributes.Title, Is.EqualTo("About us"));
+			Assert.That(content, Is.Not.Null, "Content should not be null");
+			Assert.That(content.Error, Is.Null, "Error should be null");
+			Assert.That(content.Data.Attributes.Title, Is.EqualTo("About us"), "Title should be 'About us'");
+		}
+
+		/// <summary>
+		/// Tests getting a single <see cref="ContentBlock"/> from a remote source.
+		/// </summary>
+		[Test]
+		public async Task Fail_GettingASingleContentBlock()
+		{
+			var endpoint = "api/content-blocks";
+			mockHandler.When($"{_url}/{endpoint}/*")
+				.Respond("application/json", SampleData.Error404);
+			var client = mockHandler.ToHttpClient();
+			var requester = new StrapiRequests(client, _url);
+			var content = await requester.GetAsync<ContentBlock>(1);
+
+			Assert.That(content.Data, Is.Null, "Content should be null");
+			Assert.That(content.Error, Is.Not.Null, "Error should not be null");
+			Assert.That(content.Error.Status, Is.EqualTo(404), "Status should be '404'");
 		}
 	}
 }
