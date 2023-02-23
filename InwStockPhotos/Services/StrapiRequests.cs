@@ -81,7 +81,11 @@ namespace InwStockPhotos.Services
 				if(response.IsSuccessStatusCode)
 				{
 					var content = await response.Content.ReadAsStringAsync();
-					return JsonSerializer.Deserialize<T>(content);
+					var options = new JsonSerializerOptions()
+					{
+						AllowTrailingCommas = true,
+					};
+					return JsonSerializer.Deserialize<T>(content, options);
 				}
 			}
 			catch(Exception exception)
