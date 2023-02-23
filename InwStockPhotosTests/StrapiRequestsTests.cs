@@ -9,7 +9,7 @@ namespace InwStockPhotosTests
 	{
 		private IStrapiRequests? requests;
 		private MockHttpMessageHandler mockHandler;
-		private string _url = "https://inw-stock-photos-strapi.myside.app/";
+		private string _url = "https://apptesting.mock";
 
 		/// <summary>
 		/// Creates a new <see cref="MockHttpMessageHandler"/> before each test.
