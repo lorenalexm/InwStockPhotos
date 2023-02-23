@@ -64,5 +64,24 @@ namespace InwStockPhotosTests
 			Assert.That(content.Error, Is.Not.Null, "Error should not be null");
 			Assert.That(content.Error.Status, Is.EqualTo(404), "Status should be '404'");
 		}
+
+		/// <summary>
+		/// Tests getting multiple <see cref="ContentBlocks"/> from a remote source.
+		/// </summary>
+		[Test]
+		public async Task Succeed_GettingMultipleContentBlocks()
+		{
+			var endpoint = "api/content-blocks";
+			mockHandler.When($"{_url}/{endpoint}")
+				.Respond("application/json", SampleData.ContentBlocks);
+			var client = mockHandler.ToHttpClient();
+			var requester = new StrapiRequests(client, _url);
+			var content = await requester.GetAllAsync<ContentBlocks>();
+
+			Assert.That(content, Is.Not.Null, "Content should not be null");
+			Assert.That(content.Error, Is.Null, "Error should be null");
+			Assert.That(content.Meta.Pagination.Total, Is.EqualTo(3), "Pagination should be equal to 3");
+			Assert.That(content.Data[1].Attributes.Title, Is.EqualTo("Subscribe now"), "Title of second in list should be 'Subscribe now'");
+		}
 	}
 }

@@ -96,9 +96,31 @@ namespace InwStockPhotos.Services
 			return default(T);
 		}
 
-		public async Task<IEnumerable<T?>> GetAllAsync<T>()
+		/// <summary>
+		/// Performs a <see cref="RequestMethod.Get"/> request and creates a <see cref="List{T}"/> of models from remote Strapi content.
+		/// </summary>
+		/// <typeparam name="T">A model that matches a Strapi content type.</typeparam>
+		/// <returns>A list of objects of the <typeparamref name="T"/> type.</returns>
+		public async Task<T?> GetAllAsync<T>()
 		{
-			throw new NotImplementedException();
+			string endpoint = "";
+			var type = typeof(T).ToString();
+			switch (type)
+			{
+				case "InwStockPhotos.Models.ContentBlocks":
+					endpoint = ContentBlocks.Endpoint;
+					break;
+
+				case "InwStockPhotos.Models.Tags":
+					endpoint = Tags.Endpoint;
+					break;
+
+				case "InwStockPhotos.Models.Images":
+					endpoint = Images.Endpoint;
+					break;
+			}
+
+			return await ExecuteAsync<T>($"{endpoint}", RequestMethod.Get);
 		}
 
 		/// <summary>

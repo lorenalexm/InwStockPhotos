@@ -22,7 +22,7 @@ namespace InwStockPhotos.Models
 		public static readonly string Endpoint = "api/content-blocks";
 
 		[JsonPropertyName("data")]
-		public List<ContentBlock>? Data { get; set; }
+		public List<ContentBlockData>? Data { get; set; }
 
 		[JsonPropertyName("meta")]
 		public Meta? Meta { get; set; }
